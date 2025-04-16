@@ -185,7 +185,7 @@ const Projects = () => {
       const currentY = e.touches[0].clientY;
       const deltaY = startY - currentY;
 
-      const speedChange = deltaY * 0.009;
+      const speedChange = deltaY * 0.001;
       const sign = Math.sign(speedChange);
       speed += Math.pow(Math.abs(speedChange), 0.95) * sign;
 
@@ -205,19 +205,32 @@ const Projects = () => {
   }, []);
 
   return (
-    <div className="h-screen w-full flex items-center px-8 container mx-auto">
+    <div className="h-screen w-full flex max-lg:flex-col max-lg:justify-center items-center px-8 container mx-auto">
       <canvas
         id="three-canvas"
         className="h-screen w-full fixed top-0 left-0 -z-10 max-lg:hidden"
       ></canvas>
 
+      <div className="progress-bar flex flex-col items-center justify-center gap-2 fixed right-24 max-lg:flex-row max-lg:relative max-lg:right-0 max-lg:mb-8">
+        {Array(5)
+          .fill("")
+          .map((_, index) => (
+            <div
+              id={`progress-indicator-${index}`}
+              key={index}
+              className={`w-2 h-4 rounded-full bg-white border transition-all duration-500 ease-in-out max-lg:w-4 max-lg:h-2 ${
+                indicatorIndex === index ? "!bg-black" : ""
+              }`}
+            ></div>
+          ))}
+      </div>
       <div
         id="project-content"
         className="flex flex-col gap-4 items-start max-w-lg z-10 max-lg:container max-lg:mx-auto max-lg:justify-center max-lg:items-center max-lg:max-w-lg"
       >
         <img
           src={`/project-images/${data[currentIndex].id}.webp`}
-          className="max-w-sm w-full min-lg:hidden"
+          className="max-w-xs w-full min-lg:hidden"
         />
         <h1
           id="project-heading"
@@ -239,19 +252,6 @@ const Projects = () => {
           Read More
         </Link>
         <p className="animate-pulse min-lg:hidden m-0">Scroll down</p>
-      </div>
-      <div className="progress-bar flex flex-col items-center justify-center gap-2 fixed right-24 max-lg:flex-row max-lg:right-1/2 max-lg:bottom-7 max-lg:translate-x-1/2">
-        {Array(5)
-          .fill("")
-          .map((_, index) => (
-            <div
-              id={`progress-indicator-${index}`}
-              key={index}
-              className={`w-2 h-4 rounded-full bg-white border transition-all duration-500 ease-in-out max-lg:w-4 max-lg:h-2 ${
-                indicatorIndex === index ? "!bg-black" : ""
-              }`}
-            ></div>
-          ))}
       </div>
     </div>
   );
