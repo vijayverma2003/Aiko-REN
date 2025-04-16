@@ -1,0 +1,152 @@
+[
+  {
+    "id": 1,
+    "title": "Fragmented",
+    "subtitle": "Psychological · Surreal · Slice of Mind",
+    "genre": ["Psychological", "Surreal", "Slice of Mind"],
+    "logline": "A nameless protagonist drifts through dreamlike moments of memory, regret, and identity, with no clear chronology. Each reader reconstructs their own narrative from disjointed fragments.",
+    "description": "A nameless protagonist drifts through memory fragments — dreamlike, nonlinear, and open to interpretation. No dialogue. No names. Just pure emotional storytelling.",
+    "sections": [
+      {
+        "heading": "Concept",
+        "content": "Inspired by themes of memory loss and introspection, Fragmented invites the reader to become the storyteller. Each page is a visual snapshot — clocks, letters, hallways — evoking feelings rather than delivering plot. The absence of words enhances the surrealism."
+      },
+      {
+        "heading": "Art Direction",
+        "content": "Visual motifs like birds, mirrors, and static recur to anchor the chaos. A grayscale palette with subtle gradients creates a dreamlike tone. Panel layouts are intentionally irregular — some full spreads, some broken frames — to reflect the fractured state of memory."
+      },
+      {
+        "heading": "Process",
+        "content": "Drafted initially as visual thumbnails using Procreate. Moodboards and memory collages guided the tone. Each fragment was designed in isolation, then reordered multiple times to ensure ambiguity and emotional rhythm. AI was used to explore alternate layouts and lighting."
+      },
+      {
+        "heading": "Challenges",
+        "content": "The hardest part was ensuring ambiguity without becoming incoherent. Balancing abstract art with emotional resonance took dozens of iterations. Testing the flow with readers revealed how subtle shifts could entirely change perceived meaning."
+      },
+      {
+        "heading": "Outcome",
+        "content": "Fragmented became a reader-favorite — often described as ‘haunting’ and ‘re-readable’. Its unconventional format sparked discussions in manga forums about nonlinear narratives. It continues to be a personal favorite and a benchmark for future experimental works."
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "title": "Silent Echoes",
+    "subtitle": "Romance · Mystery · Soul Connection",
+    "genre": ["Romance", "Mystery", "Soul Connection"],
+    "logline": "Two strangers meet in a snow-covered city. They never speak. But their souls recognize each other.",
+    "description": "In a silent city, two strangers meet. Though they never speak, their souls recognize each other, creating a bond deeper than words.",
+    "sections": [
+      {
+        "heading": "Concept",
+        "content": "Silent Echoes explores the unspoken connection between two people in a world of silence. The manga focuses on soul recognition rather than dialogue, where every glance and gesture speaks volumes."
+      },
+      {
+        "heading": "Art Direction",
+        "content": "The artwork features delicate linework and soft tones, with snowy landscapes enhancing the quiet, introspective atmosphere. The contrast between white and dark elements reflects the tension between silence and unspoken emotions."
+      },
+      {
+        "heading": "Process",
+        "content": "The initial storyboards were created to emphasize non-verbal communication. The flow of emotion was conveyed through facial expressions and body language, rather than words. Color palettes were carefully chosen to evoke warmth in a cold world."
+      },
+      {
+        "heading": "Challenges",
+        "content": "The challenge was creating a deep emotional connection without dialogue. Conveying feelings solely through visual storytelling required subtle yet powerful art direction and pacing."
+      },
+      {
+        "heading": "Outcome",
+        "content": "Silent Echoes was praised for its emotional depth and its unique approach to silent storytelling. The manga quickly gained a following, known for its ability to evoke powerful emotions through simplicity."
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "title": "Mono",
+    "subtitle": "Drama · Interactive · Mystery",
+    "genre": ["Drama", "Interactive", "Mystery"],
+    "logline": "One city. One night. Infinite possibilities. Choose what you notice — and shape the story.",
+    "description": "A manga where the reader chooses what details to focus on, shaping the story in infinite ways. One city, one night, with endless possibilities.",
+    "sections": [
+      {
+        "heading": "Concept",
+        "content": "Mono allows the reader to select what details to focus on, affecting the direction of the narrative. It invites an interactive experience where every choice alters the story's flow."
+      },
+      {
+        "heading": "Art Direction",
+        "content": "The art features rich, detailed backgrounds to encourage the reader's exploration. Each scene offers subtle clues and hidden details, empowering the reader to dive deeper into the narrative."
+      },
+      {
+        "heading": "Process",
+        "content": "The concept of interactive storytelling was explored through different panel designs, with some panels designed to draw attention to specific details. Multiple story paths were planned, with varying outcomes based on the reader's choices."
+      },
+      {
+        "heading": "Challenges",
+        "content": "Designing multiple narrative branches while maintaining coherence in the story was challenging. Balancing the interaction without overwhelming the reader was a key focus."
+      },
+      {
+        "heading": "Outcome",
+        "content": "Mono became a unique storytelling experience, praised for its innovative approach. The manga opened up discussions about interactive fiction and reader-driven narrative."
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "title": "404: A Glitch in the Story",
+    "subtitle": "Meta · Psychological · Thriller",
+    "genre": ["Meta", "Psychological", "Thriller"],
+    "logline": "A manga character becomes aware they're being read… and that their story is being corrupted in real time.",
+    "description": "A manga character starts to realize they are part of a story being read by someone, and their narrative begins to unravel as they fight to control their fate.",
+    "sections": [
+      {
+        "heading": "Concept",
+        "content": "404: A Glitch in the Story is a meta-thriller where a manga character becomes aware of their existence within the pages, struggling to break free from the narrative confines that bind them."
+      },
+      {
+        "heading": "Art Direction",
+        "content": "The artwork features broken panels and distorted frames to visually represent the character's struggle against their own story. The shifting, fragmented art mirrors the character's unraveling reality."
+      },
+      {
+        "heading": "Process",
+        "content": "Initial drafts were focused on creating visual chaos. The flow of panels was intentionally disrupted, creating a disjointed, jarring experience that reflects the main character's psychological turmoil."
+      },
+      {
+        "heading": "Challenges",
+        "content": "Maintaining the story’s clarity while experimenting with non-linear narrative techniques was a significant challenge. Ensuring that the reader could still follow the plot despite the distortions required meticulous planning."
+      },
+      {
+        "heading": "Outcome",
+        "content": "404 became a standout in the psychological thriller genre, praised for its innovative approach to storytelling and its ability to make readers question the nature of reality itself."
+      }
+    ]
+  },
+  {
+    "id": 5,
+    "title": "Inkbound",
+    "subtitle": "Mystery · Detective · Supernatural",
+    "genre": ["Mystery", "Detective", "Supernatural"],
+    "logline": "A detective is handed a manga found at the scene of a crime. The key to the case lies in the ink itself.",
+    "description": "A detective investigates a crime linked to a mysterious manga, where the ink on the pages holds the key to solving the case.",
+    "sections": [
+      {
+        "heading": "Concept",
+        "content": "Inkbound blends mystery and supernatural elements as a detective uncovers clues hidden within the pages of a manga. The ink itself holds supernatural significance, guiding the investigation."
+      },
+      {
+        "heading": "Art Direction",
+        "content": "The art combines realistic detective noir with the fantastical elements of the manga's supernatural aspects. The ink-based clues are subtly integrated into the artwork, with moments of surrealism weaving through the otherwise grounded narrative."
+      },
+      {
+        "heading": "Process",
+        "content": "The idea was inspired by combining traditional detective tropes with supernatural elements. The manga within the story acts as both a plot device and a visual component, blending two narrative styles."
+      },
+      {
+        "heading": "Challenges",
+        "content": "Merging the detective genre with supernatural elements posed a challenge in tone. Balancing the gritty realism of the detective world with the fantastical nature of the ink-based mystery required careful artistic choices."
+      },
+      {
+        "heading": "Outcome",
+        "content": "Inkbound became an intriguing fusion of genres, celebrated for its innovative storytelling and its ability to keep readers on the edge of their seats as they uncover the mystery behind the ink."
+      }
+    ]
+  }
+]

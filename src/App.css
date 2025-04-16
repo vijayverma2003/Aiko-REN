@@ -1,0 +1,110 @@
+@import "tailwindcss";
+
+@font-face {
+  font-family: "Boska";
+  src: url("./assets/boska/Boska-Light.ttf");
+  font-weight: 200;
+  font-style: light;
+}
+
+@font-face {
+  font-family: "Boska";
+  src: url("./assets/boska/Boska-Regular.ttf");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Boska";
+  src: url("./assets/boska/Boska-Medium.ttf");
+  font-weight: 600;
+  font-style: medium;
+}
+
+:root {
+  --background: #ffffff;
+  --foreground: #303030;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: "Boska", Arial, Helvetica, sans-serif;
+  overflow: hidden;
+}
+
+.mask {
+  height: 100vh;
+  width: 100%;
+  background-image: url("/bg.webp");
+  background-size: cover;
+  background-repeat: no-repeat;
+  -webkit-mask-image: url("/mask.png");
+  mask-image: url("/mask.png");
+  will-change: transform;
+  transform: translateZ(0);
+  -webkit-mask-composite: revert;
+  mask-composite: exclude;
+  mask-composite: exclude;
+  position: fixed;
+  opacity: 0.1;
+  top: 0;
+  left: 0;
+  z-index: -20;
+}
+
+.mask1 {
+  -webkit-mask-image: linear-gradient(transparent, black);
+  mask-image: linear-gradient(transparent, black);
+}
+
+.btn {
+  border: 1px solid #5e5e5e;
+  padding: 0.5rem 1.5rem;
+  font-size: 1.2rem;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 32px;
+  transition: background-color 0.2s ease-out;
+  background-color: white;
+}
+
+.btn:hover {
+  background-color: #353535;
+  color: #ffffff !important;
+}
+
+/* Transition */
+
+.transitions {
+  display: none;
+  position: fixed;
+  z-index: 999;
+  bottom: -100vh;
+  pointer-events: none;
+}
+
+.transition-box {
+  height: 100vh;
+  left: 0;
+  position: fixed;
+  top: 0;
+  width: 100vw;
+}
+
+.transition-box1 {
+  background-color: rgba(240, 240, 240, 0.3);
+}
+
+.transition-box2 {
+  background-color: rgba(240, 240, 240, 0.6);
+}
+
+.transition-box3 {
+  background-color: rgb(240, 240, 240);
+}
