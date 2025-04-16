@@ -1,4 +1,3 @@
-import { splitCharacters } from "../services/utils";
 import gsap from "gsap";
 import { Link } from "react-router-dom";
 import { useEffect } from "react";

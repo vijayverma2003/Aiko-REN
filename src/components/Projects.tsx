@@ -8,7 +8,7 @@ import data from "../services/projects.json";
 import gsap, { Power3 } from "gsap";
 import { Link } from "react-router-dom";
 
-function createMeshes(camera: THREE.PerspectiveCamera, group: THREE.Group) {
+function createMeshes(group: THREE.Group) {
   const textureLoader = new THREE.TextureLoader();
   const geometry = new THREE.PlaneGeometry(1.5, 1.5, 150, 150);
   const meshes: THREE.Mesh[] = [];
@@ -74,7 +74,7 @@ const Projects = () => {
 
     const group = new THREE.Group();
 
-    const { meshes, materials } = createMeshes(camera, group);
+    const { meshes, materials } = createMeshes(group);
 
     group.rotation.set(0, -Math.PI * 0.0, -0.04);
     group.position.x = 1;
@@ -174,7 +174,7 @@ const Projects = () => {
       speed += Math.pow(Math.abs(speedChange), 0.95) * sign;
     });
 
-    window.addEventListener("resize", (e) => {
+    window.addEventListener("resize", () => {
       renderer.setSize(window.innerWidth, window.innerHeight);
       camera.aspect = window.innerWidth / window.innerHeight;
       camera.updateProjectionMatrix();
