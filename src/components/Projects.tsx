@@ -245,7 +245,7 @@ const Projects = () => {
         </h1>
         <p
           id="project-description"
-          className="text-2xl font-medium max-w-lg max-lg:text-center max-lg:text-sm"
+          className="text-2xl font-medium max-w-lg max-lg:text-center max-lg:text-sm max-lg:text-black"
         >
           {data[currentIndex].description}
         </p>

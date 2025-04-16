@@ -47,7 +47,7 @@ const ProjectPage = () => {
               <h2 className="text-3xl mt-8 mb-6 font-bold">
                 {section.heading}
               </h2>
-              <p className="text-2xl">{section.content}</p>
+              <p className="text-2xl max-lg:text-black">{section.content}</p>
             </div>
           ))}
         </div>
