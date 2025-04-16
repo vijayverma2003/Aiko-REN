@@ -205,7 +205,7 @@ const Projects = () => {
   }, []);
 
   return (
-    <div className="h-screen w-full flex max-lg:flex-col max-lg:justify-center items-center px-8 container mx-auto">
+    <div className="h-screen w-full flex max-lg:flex-col max-lg:justify-start max-lg:my-24 items-center px-8 container mx-auto">
       <canvas
         id="three-canvas"
         className="h-screen w-full fixed top-0 left-0 -z-10 max-lg:hidden"
