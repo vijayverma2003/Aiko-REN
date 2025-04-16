@@ -185,7 +185,7 @@ const Projects = () => {
       const currentY = e.touches[0].clientY;
       const deltaY = startY - currentY;
 
-      const speedChange = deltaY * 0.0009;
+      const speedChange = deltaY * 0.009;
       const sign = Math.sign(speedChange);
       speed += Math.pow(Math.abs(speedChange), 0.95) * sign;
 
@@ -213,18 +213,21 @@ const Projects = () => {
 
       <div
         id="project-content"
-        className="flex flex-col gap-4 items-start max-w-xl z-10 max-lg:container max-lg:mx-auto max-lg:justify-center max-lg:items-center max-lg:max-w-lg"
+        className="flex flex-col gap-4 items-start max-w-lg z-10 max-lg:container max-lg:mx-auto max-lg:justify-center max-lg:items-center max-lg:max-w-lg"
       >
         <img
           src={`/project-images/${data[currentIndex].id}.webp`}
-          className="max-w-xs min-lg:hidden"
+          className="max-w-sm w-full min-lg:hidden"
         />
-        <h1 id="project-heading" className="text-8xl font-bold max-lg:text-4xl">
+        <h1
+          id="project-heading"
+          className="text-8xl font-bold max-lg:text-2xl max-lg:text-center"
+        >
           {data[currentIndex].title}
         </h1>
         <p
           id="project-description"
-          className="text-2xl font-medium max-lg:text-center max-lg:text-xl"
+          className="text-2xl font-medium max-lg:text-center max-lg:text-sm"
         >
           {data[currentIndex].description}
         </p>

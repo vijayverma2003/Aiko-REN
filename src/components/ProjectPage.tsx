@@ -32,7 +32,7 @@ const ProjectPage = () => {
         <div className="flex flex-col justify-center max-w-4xl mx-auto">
           <h1 className="text-6xl my-8 font-bold">{project.title}</h1>
           <p className="text-2xl">{project.description}</p>
-          <div className="flex gap-4 mt-6 mb-12">
+          <div className="flex gap-4 mt-6 mb-12 flex-wrap">
             {project.genre.map((genre) => (
               <span
                 key={genre}
