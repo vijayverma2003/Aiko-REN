@@ -90,6 +90,7 @@ const Projects = () => {
     let currentPosition = 0;
     let newAnimation: gsap.core.Tween;
     let startedAt = 0;
+    let startY: number | null = null;
 
     const clock = new THREE.Clock();
 
@@ -172,6 +173,23 @@ const Projects = () => {
       const speedChange = e.deltaY * 0.0009;
       const sign = Math.sign(speedChange);
       speed += Math.pow(Math.abs(speedChange), 0.95) * sign;
+    });
+
+    window.addEventListener("touchstart", function (e) {
+      startY = e.touches[0].clientY;
+    });
+
+    window.addEventListener("touchmove", function (e) {
+      if (startY === null) return;
+
+      const currentY = e.touches[0].clientY;
+      const deltaY = startY - currentY;
+
+      const speedChange = deltaY * 0.0009;
+      const sign = Math.sign(speedChange);
+      speed += Math.pow(Math.abs(speedChange), 0.95) * sign;
+
+      startY = currentY; // update for continuous swipe
     });
 
     window.addEventListener("resize", () => {
