@@ -21,15 +21,15 @@ const ProjectPage = () => {
     };
   }, []);
 
-  if (!params.id || !parseInt(params.id)) return;
+  if (!params.id || !parseInt(params.id)) return <NotFound />;
   const [project] = useState(projects[parseInt(params.id) - 1]);
 
   if (!project) return <NotFound />;
 
   return (
     <>
-      <section id="project-page" className="my-24 px-4 container mx-auto">
-        <div className="flex flex-col justify-center max-w-4xl mx-auto">
+      <section id="project-page" className="my-24 px-8 container mx-auto">
+        <div className="flex flex-col justify-center mx-auto">
           <h1 className="text-6xl my-8 font-bold">{project.title}</h1>
           <p className="text-2xl">{project.description}</p>
           <div className="flex gap-4 mt-6 mb-12 flex-wrap">

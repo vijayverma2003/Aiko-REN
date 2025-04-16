@@ -118,6 +118,11 @@ const Projects = () => {
         materials[index].uniforms.uDist.value = dist;
         dist = -Math.pow(dist, 2);
         mesh.scale.set(1 + dist * 0.15, 1, 1);
+        (
+          document.querySelector(
+            `#progress-indicator-${index}`
+          ) as HTMLSpanElement
+        ).style.transform = `scale(${Math.max(0.4, 1 + dist * 0.3)})`;
       });
 
       materials.forEach((material) => {
@@ -218,15 +223,15 @@ const Projects = () => {
             <div
               id={`progress-indicator-${index}`}
               key={index}
-              className={`w-2 h-4 rounded-full bg-white border transition-all duration-500 ease-in-out max-lg:w-4 max-lg:h-2 ${
-                indicatorIndex === index ? "!bg-black" : ""
+              className={`w-4 h-4 rounded-full bg-gray-400 transition-all duration-100 ease-in-out ${
+                indicatorIndex === index ? "!bg-gray-600" : ""
               }`}
             ></div>
           ))}
       </div>
       <div
         id="project-content"
-        className="flex flex-col gap-4 items-start max-w-lg z-10 max-lg:container max-lg:mx-auto max-lg:justify-center max-lg:items-center max-lg:max-w-lg"
+        className="flex flex-col gap-4 items-start z-10 max-lg:container max-lg:mx-auto max-lg:justify-center max-lg:items-center max-lg:max-w-lg"
       >
         <img
           src={`/project-images/${data[currentIndex].id}.webp`}
@@ -234,13 +239,13 @@ const Projects = () => {
         />
         <h1
           id="project-heading"
-          className="text-8xl font-bold max-lg:text-2xl max-lg:text-center"
+          className="text-8xl font-bold max-w-xl  max-lg:text-2xl max-lg:text-center"
         >
           {data[currentIndex].title}
         </h1>
         <p
           id="project-description"
-          className="text-2xl font-medium max-lg:text-center max-lg:text-sm"
+          className="text-2xl font-medium max-w-lg max-lg:text-center max-lg:text-sm"
         >
           {data[currentIndex].description}
         </p>
