@@ -7,56 +7,18 @@ import projects from "../../assets/data/projects.json";
 import fragment from "../../assets/shaders/plane/fragment";
 import vertex from "../../assets/shaders/plane/vertex";
 
-function createMeshes(group: THREE.Group) {
-  const textureLoader = new THREE.TextureLoader();
-  const geometry = new THREE.PlaneGeometry(1.5, 1.5, 150, 150);
-  const meshes: THREE.Mesh[] = [];
-  const materials: THREE.ShaderMaterial[] = [];
-
-  for (let i = 0; i < projects.length; i++) {
-    const texture = textureLoader.load(`/project-images/${i + 1}.webp`);
-
-    const material = new THREE.ShaderMaterial({
-      vertexShader: vertex,
-      fragmentShader: fragment,
-      uniforms: {
-        uTexture: { value: texture },
-        uWheel: { value: 0 },
-        uTime: { value: 0 },
-        uDist: { value: 0 },
-      },
-    });
-
-    const mesh = new THREE.Mesh(geometry, material);
-
-    mesh.position.y = -(i * 1.75);
-    gsap.fromTo(
-      mesh.position,
-      { y: -5 },
-      { y: -(i * 1.75), duration: 2, ease: "power3.out" }
-    );
-
-    meshes.push(mesh);
-    materials.push(material);
-    group.add(mesh);
-  }
-
-  return { meshes, materials };
-}
-
 const Projects = () => {
   const [projectIndex, setProjectIndex] = useState(0);
   const [indicatorIndex, setIndicatorIndex] = useState(0);
 
   useEffect(() => {
-    const canvas = document.getElementById("three-canvas");
-
     gsap.fromTo(
       "#project-content",
       { y: 50, opacity: 0 },
       { opacity: 1.0, y: 0, ease: Power3.easeOut, duration: 2 }
     );
 
+    const canvas = document.getElementById("three-canvas");
     if (!canvas) return;
 
     // Create Scene, Camera and Render Meshes
@@ -90,6 +52,8 @@ const Projects = () => {
     let animationFrameId: number;
 
     const clock = new THREE.Clock();
+
+    // Animation
 
     function animate() {
       position += speed;
@@ -171,6 +135,8 @@ const Projects = () => {
     }
 
     animate();
+
+    // Event Listeners
 
     window.addEventListener("wheel", function (e) {
       const speedChange = e.deltaY * 0.0009;
@@ -261,3 +227,40 @@ const Projects = () => {
 };
 
 export default Projects;
+
+function createMeshes(group: THREE.Group) {
+  const textureLoader = new THREE.TextureLoader();
+  const geometry = new THREE.PlaneGeometry(1.5, 1.5, 150, 150);
+  const meshes: THREE.Mesh[] = [];
+  const materials: THREE.ShaderMaterial[] = [];
+
+  for (let i = 0; i < projects.length; i++) {
+    const texture = textureLoader.load(`/project-images/${i + 1}.webp`);
+
+    const material = new THREE.ShaderMaterial({
+      vertexShader: vertex,
+      fragmentShader: fragment,
+      uniforms: {
+        uTexture: { value: texture },
+        uWheel: { value: 0 },
+        uTime: { value: 0 },
+        uDist: { value: 0 },
+      },
+    });
+
+    const mesh = new THREE.Mesh(geometry, material);
+
+    mesh.position.y = -(i * 1.75);
+    gsap.fromTo(
+      mesh.position,
+      { y: -5 },
+      { y: -(i * 1.75), duration: 2, ease: "power3.out" }
+    );
+
+    meshes.push(mesh);
+    materials.push(material);
+    group.add(mesh);
+  }
+
+  return { meshes, materials };
+}
