@@ -1,12 +1,11 @@
-"use client";
-
-import fragment from "../assets/shaders/plane/fragment";
-import vertex from "../assets/shaders/plane/vertex";
-import { useEffect, useState } from "react";
-import * as THREE from "three";
-import data from "../services/projects.json";
 import gsap, { Power3 } from "gsap";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import * as THREE from "three";
+
+import projects from "../../assets/data/projects.json";
+import fragment from "../../assets/shaders/plane/fragment";
+import vertex from "../../assets/shaders/plane/vertex";
 
 function createMeshes(group: THREE.Group) {
   const textureLoader = new THREE.TextureLoader();
@@ -14,7 +13,7 @@ function createMeshes(group: THREE.Group) {
   const meshes: THREE.Mesh[] = [];
   const materials: THREE.ShaderMaterial[] = [];
 
-  for (let i = 0; i < data.length; i++) {
+  for (let i = 0; i < projects.length; i++) {
     const texture = textureLoader.load(`/project-images/${i + 1}.webp`);
 
     const material = new THREE.ShaderMaterial({
@@ -46,13 +45,11 @@ function createMeshes(group: THREE.Group) {
 }
 
 const Projects = () => {
-  const [currentIndex, setCurrentIndex] = useState(0);
+  const [projectIndex, setProjectIndex] = useState(0);
   const [indicatorIndex, setIndicatorIndex] = useState(0);
 
   useEffect(() => {
     const canvas = document.getElementById("three-canvas");
-
-    if (!canvas) return;
 
     gsap.fromTo(
       "#project-content",
@@ -62,7 +59,10 @@ const Projects = () => {
 
     if (!canvas) return;
 
+    // Create Scene, Camera and Render Meshes
+
     const scene = new THREE.Scene();
+
     const camera = new THREE.PerspectiveCamera(
       75,
       window.innerWidth / window.innerHeight,
@@ -70,12 +70,8 @@ const Projects = () => {
     );
     camera.position.z = 2;
 
-    // Meshes
-
     const group = new THREE.Group();
-
     const { meshes, materials } = createMeshes(group);
-
     group.rotation.set(0, -Math.PI * 0.0, -0.04);
     group.position.x = 1;
     scene.add(group);
@@ -91,10 +87,9 @@ const Projects = () => {
     let newAnimation: gsap.core.Tween;
     let startedAt = 0;
     let startY: number | null = null;
+    let animationFrameId: number;
 
     const clock = new THREE.Clock();
-
-    let animationFrameId: number;
 
     function animate() {
       position += speed;
@@ -104,6 +99,7 @@ const Projects = () => {
         Math.min(meshes.length - 1, Math.round(position)),
         0
       );
+
       const diff = roundedPosition - position;
 
       position += Math.sign(diff) * Math.pow(Math.abs(diff), 0.85) * 0.045;
@@ -115,14 +111,18 @@ const Projects = () => {
 
       meshes.forEach((mesh, index) => {
         let dist = Math.abs(position - index);
+
         materials[index].uniforms.uDist.value = dist;
+
         dist = -Math.pow(dist, 2);
         mesh.scale.set(1 + dist * 0.15, 1, 1);
-        (
-          document.querySelector(
-            `#progress-indicator-${index}`
-          ) as HTMLSpanElement
-        ).style.transform = `scale(${Math.max(0.4, 1 + dist * 0.3)})`;
+
+        const indicator = document.querySelector(
+          `#progress-indicator-${index}`
+        ) as HTMLSpanElement;
+
+        if (indicator)
+          indicator.style.transform = `scale(${Math.max(0.4, 1 + dist * 0.3)})`;
       });
 
       materials.forEach((material) => {
@@ -134,7 +134,6 @@ const Projects = () => {
 
       if (currentPosition !== roundedPosition) {
         setIndicatorIndex(roundedPosition);
-
         if (startedAt - Date.now() < 1000) newAnimation?.kill();
 
         let position = currentPosition;
@@ -148,7 +147,7 @@ const Projects = () => {
             delay: 0.2,
             ease: Power3.easeOut,
             onComplete: () => {
-              setCurrentIndex(roundedPosition);
+              setProjectIndex(roundedPosition);
               gsap.fromTo(
                 "#project-content",
                 { opacity: 0, y: position < roundedPosition ? 50 : -50 },
@@ -168,7 +167,6 @@ const Projects = () => {
       }
 
       currentPosition = roundedPosition;
-
       animationFrameId = window.requestAnimationFrame(animate);
     }
 
@@ -194,7 +192,7 @@ const Projects = () => {
       const sign = Math.sign(speedChange);
       speed += Math.pow(Math.abs(speedChange), 0.95) * sign;
 
-      startY = currentY; // update for continuous swipe
+      startY = currentY;
     });
 
     window.addEventListener("resize", () => {
@@ -234,23 +232,23 @@ const Projects = () => {
         className="flex flex-col gap-4 items-start z-10 max-lg:container max-lg:mx-auto max-lg:justify-center max-lg:items-center max-lg:max-w-lg"
       >
         <img
-          src={`/project-images/${data[currentIndex].id}.webp`}
+          src={`/project-images/${projects[projectIndex].id}.webp`}
           className="max-w-xs w-full min-lg:hidden"
         />
         <h1
           id="project-heading"
           className="text-8xl font-bold max-w-xl  max-lg:text-2xl max-lg:text-center"
         >
-          {data[currentIndex].title}
+          {projects[projectIndex].title}
         </h1>
         <p
           id="project-description"
           className="text-2xl font-medium max-w-lg max-lg:text-center max-lg:text-sm max-lg:text-black"
         >
-          {data[currentIndex].description}
+          {projects[projectIndex].description}
         </p>
         <Link
-          to={`/projects/${data[currentIndex].id}`}
+          to={`/projects/${projects[projectIndex].id}`}
           id="project-button"
           className="btn font-bold"
         >

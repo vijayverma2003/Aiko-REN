@@ -1,12 +1,13 @@
 import { AnimatePresence } from "framer-motion";
 import { Route, Routes, useLocation } from "react-router-dom";
+
 import "./App.css";
 import Home from "./components/Home";
-import Projects from "./components/Projects";
-import Transition from "./components/Transition";
-import Navbar from "./components/Navbar";
-import ProjectPage from "./components/ProjectPage";
-import NotFound from "./components/projects/NotFound";
+import Navbar from "./components/common/Navbar";
+import NotFound from "./components/common/NotFound";
+import ProjectPage from "./components/projects/ProjectPage";
+import Projects from "./components/projects/Projects";
+import Transition from "./components/common/Transition";
 
 function App() {
   const location = useLocation();
@@ -38,7 +39,8 @@ function App() {
           <Route
             element={
               <>
-                <Home /> <Transition />
+                <Home />
+                <Transition />
               </>
             }
             path="/"
